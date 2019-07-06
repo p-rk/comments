@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import signupController from './src/controllers/signup'
 import loginController from './src/controllers/login'
 import commentsController from './src/controllers/Comments';
+import authMiddleware from './src/middlewares/checkAuth';
 import redis from './src/redis/config';
 
 const { getComments } = commentsController();
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/signup', signupController);
 app.post('/login', loginController);
-app.get('/comments', getComments);
+app.get('/comments', authMiddleware, getComments);
 
 
 const port = 3002;

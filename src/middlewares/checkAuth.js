@@ -1,4 +1,4 @@
-import verifyToken from '../services/auth';
+import { verifyToken } from '../services/auth';
 
 export default (req, res, next) => {
   let tokenToVerify;
@@ -27,6 +27,7 @@ export default (req, res, next) => {
       });
     }
     req.token = thisToken;
+    console.log(thisToken);
     return next();
   });
 };
