@@ -1,4 +1,4 @@
-# Simple Node Imdb Scraper
+# Simple Comments NodeJS API
 
 This is a simple NodeJS project for comments feature using redis as database.
 
