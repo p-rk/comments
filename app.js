@@ -6,7 +6,7 @@ import commentsController from './src/controllers/Comments';
 import authMiddleware from './src/middlewares/checkAuth';
 import redis from './src/redis/config';
 
-const { getComments } = commentsController();
+const { getComments, postComments, voteForComment } = commentsController();
 
 const app = express();
 
@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/signup', signupController);
 app.post('/login', loginController);
 app.get('/comments', authMiddleware, getComments);
+app.post('/comments', authMiddleware, postComments);
+app.post('/comments/vote', authMiddleware, voteForComment);
 
 
 const port = 3002;
