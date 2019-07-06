@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/signup', signupController);
 app.post('/login', loginController);
-app.get('/comments', authMiddleware, getComments);
+app.get('/comments', getComments);
 app.post('/comments', authMiddleware, postComments);
 app.post('/comments/vote', authMiddleware, voteForComment);
 
